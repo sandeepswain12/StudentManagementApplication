@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Student Management Application</title>
+    <link rel="stylesheet" 
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous">
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-md navbar-dark" style="background-color: blue;">
+            <div>
+                <a href="#" class="navbar-brand">Student Management Application</a>
+            </div>
+        </nav>
+    </header>
+    <br>
+
+    <div class="container">
+        <h3 class="text-center">List of Students</h3>
+        <hr>
+        <div class="text-left mb-3">
+            <a href="/students/new" class="btn btn-success">Add New Student</a>
+        </div>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Roll No</th>
+                    <th>Name</th>
+                    <th>Branch</th>
+                    <th>Percentage</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="student : ${students}">
+                    <td th:text="${student.rollNo}"></td>
+                    <td th:text="${student.name}"></td>
+                    <td th:text="${student.branch}"></td>
+                    <td th:text="${student.percentage}"></td>
+                    <td>
+						<a th:href="@{/students/edit/{id}(id=${student.rollNo})}" class="btn btn-primary btn-sm">Edit</a>
+                        <a th:href="@{/students/{id}(id=${student.rollNo})}" class="btn btn-danger btn-sm">Delete</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

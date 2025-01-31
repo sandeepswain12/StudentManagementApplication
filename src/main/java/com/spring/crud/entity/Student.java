@@ -16,7 +16,7 @@ public class Student {
 	@Column(name = "sname")
 	private String name;
 	@Column(name = "spercentage")
-	private float percentage;
+	private String percentage;
 	@Column(name = "sbranch")
 	private String branch;
 		
@@ -25,7 +25,7 @@ public class Student {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Student(String name, float percentage, String branch) {
+	public Student(String name, String percentage, String branch) {
 		super();
 		this.name = name;
 		this.percentage = percentage;
@@ -48,11 +48,11 @@ public class Student {
 		this.name = name;
 	}
 
-	public float getPercentage() {
+	public String getPercentage() {
 		return percentage;
 	}
 
-	public void setPercentage(float percentage) {
+	public void setPercentage(String percentage) {
 		this.percentage = percentage;
 	}
 

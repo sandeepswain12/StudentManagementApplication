@@ -19,7 +19,7 @@
     <div class="container col-md-5">
         <div class="card">
             <div class="card-body">
-                <form th:action="@{/student/{id}(id=${student.rollNo})}" th:object="${student}" method="post">
+                <form th:action="@{/student/{studentId}(studentId=${student.studentId})}" th:object="${student}" method="post">
 
                     <fieldset class="form-group">
                         <label>Name</label>

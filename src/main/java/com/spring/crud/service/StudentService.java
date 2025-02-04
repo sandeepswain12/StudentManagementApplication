@@ -6,13 +6,20 @@ import com.spring.crud.dtos.StudentDto;
 import com.spring.crud.entity.Student;
 
 public interface StudentService {
+	
+	//create
+	StudentDto create(StudentDto studentDto);
+	
+	//update
+	StudentDto update(String studentId ,StudentDto studentDto);
+	
+	//delete
+	void deleteStudentById(String studentId);
+	
+	//getAll
 	List<StudentDto> getAllStudent();
 	
-	StudentDto saveStudent(StudentDto studentDto);
+	//getById
+	StudentDto getStudentById(String studentId);	
 	
-	StudentDto getStudentById(int id);
-	
-	StudentDto updateStudent(int id ,StudentDto student);
-	
-	void deleteStudentById(int id);
 }

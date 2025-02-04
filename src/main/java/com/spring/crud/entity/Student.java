@@ -11,8 +11,7 @@ import jakarta.persistence.Table;
 @Table(name = "student")
 public class Student {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int rollNo;
+	private String studentId;
 	@Column(name = "sname")
 	private String name;
 	@Column(name = "spercentage")
@@ -25,19 +24,20 @@ public class Student {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Student(String name, String percentage, String branch) {
+	public Student(String studentId, String name, String percentage, String branch) {
 		super();
+		this.studentId = studentId;
 		this.name = name;
 		this.percentage = percentage;
 		this.branch = branch;
 	}
 
-	public int getRollNo() {
-		return rollNo;
+	public String getStudentId() {
+		return studentId;
 	}
 
-	public void setRollNo(int rollNo) {
-		this.rollNo = rollNo;
+	public void setStudentId(String studentId) {
+		this.studentId = studentId;
 	}
 
 	public String getName() {
@@ -64,11 +64,7 @@ public class Student {
 		this.branch = branch;
 	}
 
-	@Override
-	public String toString() {
-		return "Student [rollNo=" + rollNo + ", name=" + name + ", percentage=" + percentage + ", branch=" + branch
-				+ "]";
-	}
+	
 	
 	
 }

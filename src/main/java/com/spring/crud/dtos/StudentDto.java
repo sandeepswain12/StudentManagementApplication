@@ -7,7 +7,7 @@ import jakarta.validation.constraints.Size;
 
 public class StudentDto {
 	
-	private int rollNo;
+	private String studentId;
 	@NotBlank(message = "Please Provide Your Username")
 	private String name;
 	
@@ -22,20 +22,23 @@ public class StudentDto {
 	public StudentDto() {
 		
 	}
-	
-	public StudentDto(int rollNo, String name, String percentage, String branch) {
-		this.rollNo = rollNo;
+
+	public StudentDto(String studentId, @NotBlank(message = "Please Provide Your Username") String name,
+			@Min(value = 1, message = "Percentage must be at least 1") @Max(value = 100, message = "Percentage cannot be more than 100") String percentage,
+			@NotBlank(message = "Please Provide Your Branch") String branch) {
+		super();
+		this.studentId = studentId;
 		this.name = name;
 		this.percentage = percentage;
 		this.branch = branch;
 	}
 
-	public int getRollNo() {
-		return rollNo;
+	public String getStudentId() {
+		return studentId;
 	}
 
-	public void setRollNo(int rollNo) {
-		this.rollNo = rollNo;
+	public void setStudentId(String studentId) {
+		this.studentId = studentId;
 	}
 
 	public String getName() {
@@ -62,6 +65,7 @@ public class StudentDto {
 		this.branch = branch;
 	}
 	
+		
 	
 }
 

@@ -26,7 +26,7 @@
         <table class="table table-bordered">
             <thead>
                 <tr>
-                    <th>Roll No</th>
+                    <th>Student Id</th>
                     <th>Name</th>
                     <th>Branch</th>
                     <th>Percentage</th>
@@ -35,13 +35,13 @@
             </thead>
             <tbody>
                 <tr th:each="student : ${students}">
-                    <td th:text="${student.rollNo}"></td>
+                    <td th:text="${student.studentId}"></td>
                     <td th:text="${student.name}"></td>
                     <td th:text="${student.branch}"></td>
                     <td th:text="${student.percentage}"></td>
                     <td>
-						<a th:href="@{/students/edit/{id}(id=${student.rollNo})}" class="btn btn-primary btn-sm">Edit</a>
-                        <a th:href="@{/students/{id}(id=${student.rollNo})}" class="btn btn-danger btn-sm">Delete</a>
+						<a th:href="@{/students/edit/{studentId}(studentId=${student.studentId})}" class="btn btn-primary btn-sm">Edit</a>
+                        <a th:href="@{/students/{studentId}(studentId=${student.studentId})}" class="btn btn-danger btn-sm">Delete</a>
                     </td>
                 </tr>
             </tbody>

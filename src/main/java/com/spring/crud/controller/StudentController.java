@@ -36,31 +36,31 @@ public class StudentController {
 	
 	@PostMapping("/student/save")
 	public String saveStudent(@Valid @ModelAttribute() StudentDto studentdto) {
-        studentService.saveStudent(studentdto);
+        studentService.create(studentdto);
         return "redirect:/students"; // Redirect to the student list after saving
     }
 	
-	@GetMapping("/student/{id}")
-	public StudentDto getStudent(@PathVariable int id) {
-		StudentDto studentDto = studentService.getStudentById(id);
+	@GetMapping("/student/{studentId}")
+	public StudentDto getStudent(@PathVariable String studentId) {
+		StudentDto studentDto = studentService.getStudentById(studentId);
 		return studentDto;
 	}
 	
-	@GetMapping("/students/edit/{id}")
-	public String editStudent(@PathVariable int id,Model model){
-		model.addAttribute("student",studentService.getStudentById(id));
+	@GetMapping("/students/edit/{studentId}")
+	public String editStudent(@PathVariable String studentId,Model model){
+		model.addAttribute("student",studentService.getStudentById(studentId));
 		return "update.html";
 	}
 	
-	@PostMapping("/student/{id}")
-	public String updateStudent(@PathVariable() int id,@Valid @ModelAttribute StudentDto studentDto) {
-		studentService.updateStudent(id,studentDto);
+	@PostMapping("/student/{studentId}")
+	public String updateStudent(@PathVariable() String studentId,@Valid @ModelAttribute StudentDto studentDto) {
+		studentService.update(studentId,studentDto);
 		return "redirect:/students";
 	}
 	
-	@GetMapping("/students/{id}")
-	public String deleteStudent(@PathVariable int id) {
-		studentService.deleteStudentById(id);
+	@GetMapping("/students/{studentId}")
+	public String deleteStudent(@PathVariable String studentId) {
+		studentService.deleteStudentById(studentId);
 		return "redirect:/students";
 	}
 
